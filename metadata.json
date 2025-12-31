@@ -1,0 +1,8 @@
+{
+  "name": "GlucaTrack AI",
+  "description": "An ethical, offline-first health monitoring app for tracking glucose, blood pressure, and vital signs with AI-powered observational insights.",
+  "requestFramePermissions": [
+    "camera",
+    "bluetooth"
+  ]
+}
