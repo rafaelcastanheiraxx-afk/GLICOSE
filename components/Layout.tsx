@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { View } from '../types';
+import { View } from '../types.ts';
 import { Home, History, BarChart3, BrainCircuit, Settings, Plus, CloudOff, Cloud, RefreshCw } from 'lucide-react';
 
 interface LayoutProps {
@@ -22,7 +21,6 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onNavigate, isOn
 
   return (
     <div className="flex flex-col h-screen max-w-md mx-auto bg-[#F8FAFC] relative overflow-hidden">
-      {/* Top Header */}
       <header className="px-6 py-4 flex justify-between items-center bg-white/90 backdrop-blur-xl sticky top-0 z-40 border-b border-slate-50">
         <div className="flex flex-col">
           <h1 className="text-xl font-black text-indigo-900 tracking-tight">{t.appName}</h1>
@@ -50,12 +48,10 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onNavigate, isOn
         </div>
       </header>
 
-      {/* Main Content Area */}
       <main className="flex-1 overflow-y-auto px-4 pb-32 pt-4 relative no-scrollbar">
         {children}
       </main>
 
-      {/* Floating Action Button */}
       {currentView !== 'NEW_RECORD' && (
         <button
           onClick={() => onNavigate('NEW_RECORD')}
@@ -65,7 +61,6 @@ const Layout: React.FC<LayoutProps> = ({ children, currentView, onNavigate, isOn
         </button>
       )}
 
-      {/* Bottom Navigation */}
       <nav className="bg-white/95 backdrop-blur-xl border-t border-slate-100 px-6 py-4 flex justify-around items-center sticky bottom-0 z-40 pb-8">
         {navItems.map((item) => (
           <button

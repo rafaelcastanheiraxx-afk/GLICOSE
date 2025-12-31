@@ -1,7 +1,6 @@
-
-import React, { useState, useEffect } from 'react';
-import { VitalType, VitalReading } from '../types';
-import { X, Check, Bluetooth, ChevronRight, Loader2, Smartphone } from 'lucide-react';
+import React, { useState } from 'react';
+import { VitalType, VitalReading } from '../types.ts';
+import { X, Bluetooth, Loader2 } from 'lucide-react';
 
 interface NewRecordProps {
   onSave: (reading: Partial<VitalReading>) => void;
@@ -17,7 +16,7 @@ const NewRecord: React.FC<NewRecordProps> = ({ onSave, onCancel, lang, t }) => {
   const [mood, setMood] = useState('😊');
   const [symptoms, setSymptoms] = useState<string[]>([]);
   const [isScanning, setIsScanning] = useState(false);
-  const [scanStep, setScanStep] = useState(0); // 0: idle, 1: scanning, 2: found, 3: connecting
+  const [scanStep, setScanStep] = useState(0); 
 
   const emojis = ['😊', '😐', '😔', '😫', '🤢', '🤒'];
   const symptomList = lang === 'pt' 
@@ -43,7 +42,6 @@ const NewRecord: React.FC<NewRecordProps> = ({ onSave, onCancel, lang, t }) => {
     setTimeout(() => {
       setIsScanning(false);
       setScanStep(0);
-      // Simulate receiving data
       if (type === VitalType.GLUCOSE) setValue('108');
       if (type === VitalType.BLOOD_PRESSURE) { setSystolic('115'); setValue('75'); }
     }, 5000);
@@ -87,7 +85,6 @@ const NewRecord: React.FC<NewRecordProps> = ({ onSave, onCancel, lang, t }) => {
       )}
 
       <div className="space-y-4">
-        {/* Type Selector */}
         <div className="grid grid-cols-2 gap-2">
           {Object.values(VitalType).map((t) => (
             <button
@@ -102,7 +99,6 @@ const NewRecord: React.FC<NewRecordProps> = ({ onSave, onCancel, lang, t }) => {
           ))}
         </div>
 
-        {/* Input Field */}
         <div className="material-card p-6 space-y-4 border-2 border-transparent focus-within:border-indigo-100 transition-all">
           <div className="flex items-center justify-between mb-2">
             <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{t.inputValue}</span>
@@ -149,7 +145,6 @@ const NewRecord: React.FC<NewRecordProps> = ({ onSave, onCancel, lang, t }) => {
           </div>
         </div>
 
-        {/* Mood Selector */}
         <div className="material-card p-6">
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">{t.howFeeling}</p>
           <div className="flex justify-between items-center">
@@ -165,7 +160,6 @@ const NewRecord: React.FC<NewRecordProps> = ({ onSave, onCancel, lang, t }) => {
           </div>
         </div>
 
-        {/* Symptoms */}
         <div className="material-card p-6">
           <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-4">{t.anySymptoms}</p>
           <div className="flex flex-wrap gap-2">
@@ -185,7 +179,6 @@ const NewRecord: React.FC<NewRecordProps> = ({ onSave, onCancel, lang, t }) => {
           </div>
         </div>
 
-        {/* Action Button */}
         <button
           onClick={handleSave}
           disabled={!value}

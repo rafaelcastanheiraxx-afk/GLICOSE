@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { AppState } from '../types';
+import { AppState } from '../types.ts';
 import { User, Shield, Bell, Database, Info, LogOut, ChevronRight, Moon, MessageSquareQuote, Globe } from 'lucide-react';
 
 interface SettingsProps {
@@ -54,7 +53,6 @@ const Settings: React.FC<SettingsProps> = ({ appState, t, onToggleBiblical, onTo
     <div className="space-y-6 pb-12">
       <h2 className="text-2xl font-bold text-slate-800 px-1">{t.more}</h2>
 
-      {/* Profile Card */}
       <div className="material-card p-6 flex items-center gap-4 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-full -mr-16 -mt-16"></div>
         <div className="w-16 h-16 rounded-[24px] bg-indigo-600 flex items-center justify-center text-white relative z-10 shadow-lg shadow-indigo-100">
@@ -67,7 +65,6 @@ const Settings: React.FC<SettingsProps> = ({ appState, t, onToggleBiblical, onTo
         </div>
       </div>
 
-      {/* Settings Sections */}
       {sections.map((section, idx) => (
         <div key={idx} className="space-y-3">
           <h4 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest px-2">{section.title}</h4>
@@ -102,7 +99,6 @@ const Settings: React.FC<SettingsProps> = ({ appState, t, onToggleBiblical, onTo
         </div>
       ))}
 
-      {/* App Info */}
       <div className="py-4 space-y-4">
         <div className="flex items-center justify-center gap-2 text-slate-400">
           <Info size={14} />

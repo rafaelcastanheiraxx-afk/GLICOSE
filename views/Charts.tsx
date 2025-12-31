@@ -1,11 +1,9 @@
-
 import React, { useMemo } from 'react';
-import { VitalReading, VitalType } from '../types';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
+import { VitalReading, VitalType } from '../types.ts';
+import { XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, AreaChart, Area } from 'recharts';
 
 interface ChartsProps {
   readings: VitalReading[];
-  // Added t translation prop to resolve TypeScript error in App.tsx
   t: any;
 }
 
@@ -31,7 +29,6 @@ const Charts: React.FC<ChartsProps> = ({ readings, t }) => {
         </select>
       </div>
 
-      {/* Glucose Trend Card */}
       <div className="material-card p-6 space-y-4">
         <div className="flex justify-between items-center">
           <div>
@@ -71,7 +68,6 @@ const Charts: React.FC<ChartsProps> = ({ readings, t }) => {
         </div>
       </div>
 
-      {/* Stats Summary Grid */}
       <div className="grid grid-cols-2 gap-4">
         <div className="material-card p-4">
           <p className="text-[10px] font-bold text-slate-400 uppercase">Avg Blood Pressure</p>

@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
-import { VitalReading, AppState, BiblicalMessage } from '../types';
-import { getHealthObservations, getDailyVerse } from '../services/geminiService';
+import { VitalReading, AppState, BiblicalMessage } from '../types.ts';
+import { getHealthObservations, getDailyVerse } from '../services/geminiService.ts';
 import { Sparkles, Quote, Info, RefreshCw, BookOpen, Loader2 } from 'lucide-react';
 
 interface InsightsProps {

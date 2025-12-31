@@ -1,7 +1,6 @@
-
 import React from 'react';
-import { VitalReading, VitalType } from '../types';
-import { Activity, Droplets, Thermometer, Heart, User, Wind } from 'lucide-react';
+import { VitalReading, VitalType } from '../types.ts';
+import { Activity, Droplets, Thermometer, Heart, Wind } from 'lucide-react';
 
 interface DashboardProps {
   readings: VitalReading[];
@@ -21,7 +20,6 @@ const Dashboard: React.FC<DashboardProps> = ({ readings, t }) => {
 
   return (
     <div className="space-y-6">
-      {/* Profile Summary */}
       <div className="bg-indigo-600 p-6 rounded-[32px] text-white shadow-xl relative overflow-hidden">
         <div className="relative z-10">
           <p className="text-indigo-100 text-sm opacity-90">{t.goodMorning},</p>
@@ -38,7 +36,6 @@ const Dashboard: React.FC<DashboardProps> = ({ readings, t }) => {
         <div className="absolute top-0 right-0 -mr-8 -mt-8 w-40 h-40 bg-white/10 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Vital Cards Scroll */}
       <div className="flex gap-4 overflow-x-auto pb-4 no-scrollbar">
         {stats.map((stat) => {
           const reading = getLatest(stat.type);
@@ -66,7 +63,6 @@ const Dashboard: React.FC<DashboardProps> = ({ readings, t }) => {
         })}
       </div>
 
-      {/* Recent History Preview */}
       <div className="space-y-3">
         <div className="flex justify-between items-center px-1">
           <h3 className="font-bold text-slate-800 uppercase tracking-wide text-xs">{t.recentRecords}</h3>
@@ -100,7 +96,6 @@ const Dashboard: React.FC<DashboardProps> = ({ readings, t }) => {
   );
 };
 
-// Mock missing icon
 const ShieldCheck = ({ size }: { size: number }) => <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>;
 
 export default Dashboard;
